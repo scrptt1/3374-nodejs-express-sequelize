@@ -1,8 +1,10 @@
 const {Router} = require('express');
-const PessoasController = require('../controllers/PessoasController.js');
+const PessoaController = require('../controllers/PessoaController.js');
+
+const pessoaController = new PessoaController()
 
 const router = Router();
 
-router.get('/pessoas', PessoasController.pegaTodas)
+router.get('/pessoas', (req, res) => pessoaController.pegaTodos(req, res));
 
 module.exports = router;
